@@ -1,9 +1,11 @@
 
 export interface Personas {
 
-    id:string,
     nombre:string,
-    apellido:string,
-    estado:boolean,
-    edad:number
+    edad:number,
+    apodo:string,
+    foto:boolean,
+    posicion:string,
+    estado:string,
+    id:string
 }

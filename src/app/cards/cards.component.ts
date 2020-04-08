@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Personas } from '../interfaces/personas.interface';
-import * as PERSONAS from '../../assets/data/p.json';
+import { PersonasService } from './../services/personas.service';
 
 @Component({
   selector: 'app-cards',
@@ -9,14 +9,28 @@ import * as PERSONAS from '../../assets/data/p.json';
 })
 export class CardsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private servicioPersonas: PersonasService) { }
 
   ngOnInit(): void {
-    this.personas=(PERSONAS as any).data;
-
-    console.log(this.personas);
+    
+    this.obtenerServicio();
   }
 
-  personas:Personas[];
+  personas:Personas[]=[];
+
+  obtenerServicio(){
+    /*this.http.get('https://api-mi-liga.now.sh/api/jugadores')
+    .subscribe((personas:Personas[])=>{
+      console.log(personas);
+      this.personas=personas;
+    });*/
+    
+    this.servicioPersonas.obtenerPersonas().subscribe((personas:Personas[])=>{
+      console.log(personas);
+      this.personas=personas;
+    });
+
+
+  }
 
 }

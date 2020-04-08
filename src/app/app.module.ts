@@ -49,6 +49,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { PersonasService } from './services/personas.service';
 
 
 @NgModule({
@@ -60,6 +62,7 @@ import {ReactiveFormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     AppRoutingModule,
@@ -110,7 +113,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     ScrollingModule,
   ],
-  providers: [],
+  providers: [
+    PersonasService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
